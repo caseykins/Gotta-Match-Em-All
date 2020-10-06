@@ -5,35 +5,70 @@ let btnContainer = document.createElement('div')
 btnContainer.setAttribute('class', 'button')
 document.body.appendChild(btnContainer)
 
+let cards = document.createElement('img')
+cards.setAttribute('class', 'cards')
+cards.setAttribute('src', './images/back.png')
+
 let container = document.createElement('div')
 container.setAttribute('class', 'cards')
 document.body.appendChild(container)
 
-let shuffleButton = document.createElement('button')
-shuffleButton.setAttribute('id', 'button')
-shuffleButton.innerText = "Get Cards"
-btnContainer.appendChild(shuffleButton)
 
-let timer = 45
-let matches = 0
+
+
+
+
+
 
 // create the deck
-const getCards = () => {
-    shuffleButton.addEventListener('click', function() {
-    disableButton()
-    for (let i=0; i < 30; i++) {
-    let cards = document.createElement('img')
-    cards.setAttribute('class', 'cards')
-    cards.setAttribute('src', './images/back.png')
-    container.appendChild(cards)
+let getCards = () => {
+        for (let i=0; i < 20; i++) {
+        let cards = document.createElement('img')
+        cards.setAttribute('class', 'cards')
+        cards.setAttribute('src', './images/back.png')
+        container.appendChild(cards)
+        // allow button 
+        cardsButton.removeEventListener('click', getCards)
         }
-    })
-}
+    }
 
-const disableButton = () => {
-    shuffleButton.removeEventListener('click', function() {
-        alert('You have already clicked this.')
-    })
-}
+    let cardsButton = document.createElement('button')
+    cardsButton.setAttribute('id', 'button')
+    cardsButton.innerText = "Get Cards"
+    btnContainer.appendChild(cardsButton)
+    cardsButton.addEventListener('click', getCards)
 
-getCards()
+
+// currently not working
+ const randomizeCards = () => {
+     let randomOrder = Math.floor(Math.random() * 20)
+     cards.style.order = randomOrder
+
+    //  let cardFronts = document.createElement('img')
+    //  cardFronts.setAttribute('class', 'cardfronts')
+    //  cardFronts.setAttribute('src', `./images/card${i}.png`)
+     }
+
+
+
+    //                                 NEED TO DETERMINE WHERE CARD FRONTS GO (randomize, get cards, reveal cards?)
+
+// const revealCards = () => {
+
+// select card 1
+
+// select card 2
+
+// if match: leave overturned and disable
+
+// if not a match: reset cards to downward position
+
+
+
+// }
+//}
+
+
+//getCards()
+//randomizeCards()
+
