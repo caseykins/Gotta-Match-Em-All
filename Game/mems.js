@@ -13,10 +13,12 @@ let cards = document.createElement('img')
 cards.setAttribute('class', 'cards')
 cards.setAttribute('src', './images/back.png')
 
-let cardFronts = document.createElement('img')
-// cardsFronts.setAttribute('class', 'cardFronts')
-// cardsFronts.setAttribute('src', `./images/card${i}.png`)
-// cardsFronts.setAttribute('value', i)
+let cardsFronts = [{name: 'card1', img: './images/card1.png'}, {name: 'card2', img: './images/card2.png'}, 
+                {name: 'card3', img: './images/card3.png'}, {name: 'card4', img: './images/card4.png'}, 
+                {name: 'card5', img: './images/card5.png'}, {name: 'card6', img: './images/card6.png'}, 
+                {name: 'card7', img: './images/card7.png'}, {name: 'card8', img: './images/card8.png'}, 
+                {name: 'card9', img: './images/card9.png'}, {name: 'card10', img: './images/card10.png'}]
+
 
 
 // create the deck
@@ -52,11 +54,8 @@ let getCards = () => {
 
     //                     NEED TO DETERMINE WHERE CARD FRONTS GO (randomize, get cards, reveal cards?)
 
-/*const revealCards = () => {
-    cards.addEventListener('click', flipCards)
-    let cards = document.createElement('img')
-    cards.setAttribute('id', 'cardFronts')
-    cards.setAttribute('src', `./images/card${i}.png`)
+/*  const revealCards = () => {
+
 // select card 1
 // select card 2
 // if match: leave overturned and disable
@@ -65,15 +64,15 @@ let getCards = () => {
 }*/
 
 const flipCards = () => {
-    for (let i=0; i < 20; i++)
-    cardFronts = document.createElement('img')
-    cardsFronts.setAttribute('class', 'cardFronts')
-    cardsFronts.setAttribute('src', `./images/card${i}.png`)
-    cardsFronts.setAttribute('value', i)
+    for (let i=0; i < cardsFronts.length * 2; i++)
+    console.log('cardFronts')
 }
 
 let showCard = cardsContainer.querySelectorAll('cards')
 cards.addEventListener('click', flipCards)
+
+
+// let clickCard = event.Target.className = 'cards'
 
 
 
