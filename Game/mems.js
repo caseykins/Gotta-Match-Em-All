@@ -54,22 +54,11 @@ let shuffle = (array) => {
 
 
 const flipCards = (e) => {
-    // for (let i=0; i < cardFronts.length; i++)
+    
         e.target.name
         console.log(e.target.name)
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
     }    
-
-    // cardsContainer.addEventListener('click', e => {
-    //     e.target.name
-        // parseInt(cardsContainer.cards.getAttribute('value', i))
-
-
-
-    
-
-
-
 
     // on click: replace image with CardFronts
     //      *Need two of each image*
@@ -90,8 +79,3 @@ const flipCards = (e) => {
 
 // once timer ends, no more clicks allowed
 // alert that shows how many turns were taken and how many pairs were found
-
-//shuffle()
-//getCards()
-//randomizeCards()
-//flipCards()
