@@ -9,10 +9,6 @@ let cardsContainer = document.createElement('div')
 cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
-// let cards = document.createElement('img')
-//     cards.setAttribute('class', 'cards')
-    
-
 
 let cardFronts = [{name: 'card1', img: './images/card1.png'}, {name: 'card2', img: './images/card2.png'}, 
                 {name: 'card3', img: './images/card3.png'}, {name: 'card4', img: './images/card4.png'}, 
@@ -37,10 +33,9 @@ let getCards = () => {
         cardsContainer.appendChild(cards)
         // allow button to only be clicked once
         cardsButton.removeEventListener('click', getCards)
-        // console.log(cards)
         }
     }
-//console.log(cardsContainer)
+
     let cardsButton = document.createElement('button')
     cardsButton.setAttribute('id', 'button')
     cardsButton.innerText = "Get Cards"
@@ -51,15 +46,11 @@ let getCards = () => {
     })
 
 
-
-
 let shuffle = (array) => {
     cardFronts.sort(function (a, b) {
         return .5 - Math.random()
         })
     }
-
-
 
 
 const flipCards = (e) => {
@@ -75,8 +66,7 @@ const flipCards = (e) => {
 
 
 
-    //     console.log(e)
-    //  })
+    
 
 
 
@@ -94,14 +84,6 @@ const flipCards = (e) => {
 
 //      else if card 1 !== card 2)
 //          flip over
-    
-    
-    //console.log(cardFronts)
-    // cardFronts = document.createElement('img')
-    // cardFronts.setAttribute('src', `./images/card${i}.png`) // error message saying i is not defined
-    // cardFronts.setAttribute('value', i)
-    
-//}
 
 
 // gameTimer()
