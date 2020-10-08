@@ -10,20 +10,17 @@ cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
 
-let cardFronts = [{name: 'card1', img: './images/card1.png', id: 'primape'}, {name: 'card2', img: './images/card2.png', id: 'scyther'}, 
-                {name: 'card3', img: './images/card3.png', id: 'gyarados'}, {name: 'card4', img: './images/card4.png', id: 'haunter'}, 
-                {name: 'card5', img: './images/card5.png', id: 'kabutops'}, {name: 'card6', img: './images/card6.png', id: 'aerodactyl'}, 
-                {name: 'card7', img: './images/card7.png', id: 'zapdos'}, {name: 'card8', img: './images/card8.png', id: 'beedrill'}, 
-                {name: 'card9', img: './images/card9.png', id: 'kadabra'}, {name: 'card10', img: './images/card10.png', id: 'cubone'},
-                {name: 'card11', img: './images/card11.png', id: 'primape'}, {name: 'card12', img: './images/card12.png', id: 'scyther'}, 
-                {name: 'card13', img: './images/card13.png', id: 'gyarados'}, {name: 'card14', img: './images/card14.png', id: 'haunter'}, 
-                {name: 'card15', img: './images/card15.png', id: 'kabutops'}, {name: 'card16', img: './images/card16.png', id: 'aerodactyl'}, 
-                {name: 'card17', img: './images/card17.png', id: 'zapdos'}, {name: 'card18', img: './images/card18.png', id: 'beedrill'}, 
-                {name: 'card19', img: './images/card19.png', id: 'kadabra'}, {name: 'card20', img: './images/card20.png', id: 'cubone'}]
+let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
+                {name: 'card3', img: './images/card3.png', value: 'gyarados'}, {name: 'card4', img: './images/card4.png', value: 'haunter'}, 
+                {name: 'card5', img: './images/card5.png', value: 'kabutops'}, {name: 'card6', img: './images/card6.png', value: 'aerodactyl'}, 
+                {name: 'card7', img: './images/card7.png', value: 'zapdos'}, {name: 'card8', img: './images/card8.png', value: 'beedrill'}, 
+                {name: 'card9', img: './images/card9.png', value: 'kadabra'}, {name: 'card10', img: './images/card10.png', value: 'cubone'},
+                {name: 'card11', img: './images/card11.png', value: 'primape'}, {name: 'card12', img: './images/card12.png', value: 'scyther'}, 
+                {name: 'card13', img: './images/card13.png', value: 'gyarados'}, {name: 'card14', img: './images/card14.png', value: 'haunter'}, 
+                {name: 'card15', img: './images/card15.png', value: 'kabutops'}, {name: 'card16', img: './images/card16.png', value: 'aerodactyl'}, 
+                {name: 'card17', img: './images/card17.png', value: 'zapdos'}, {name: 'card18', img: './images/card18.png', value: 'beedrill'}, 
+                {name: 'card19', img: './images/card19.png', value: 'kadabra'}, {name: 'card20', img: './images/card20.png', value: 'cubone'}]
 
-let moves = 0,
-
-timer = 60;
 
 
 // create the deck
@@ -33,6 +30,7 @@ const getCards = () => {
         cards.setAttribute('class', 'cards')
         cards.setAttribute('name', cardFronts[i].name)
         cards.setAttribute('src', './images/back.png')
+        cards.setAttribute('value', cardFronts[i].value)
         cards.addEventListener('click', flipCards)
         cardsContainer.appendChild(cards)
         // allow button to only be clicked once
@@ -64,8 +62,8 @@ const flipCards = (e) => {
     }    
 
 const findMatches = (e) => {
-    let card1 = document.querySelector(cardFronts[i]).getAttribute('id')
-    let card2 = document.querySelector(cardFronts[i]).getAttribute('id')
+    let card1 = document.querySelector(cardFronts[i]).getAttribute('value')
+    let card2 = document.querySelector(cardFronts[i]).getAttribute('value')
 
     if (card1.id === card2.id) {
         remove(e.target)
@@ -101,11 +99,15 @@ const gameTimer = (e) => {
             alert("Time's Up!")
         }
         const timerText = document.getElementById('timer')
-        timerText.innerHTML = `timer: ${timer}s`
+        timerText.innerHTML = `Timer: ${timer} Seconds`
 
     }, 600)
 
 }
+
+cardsButton.addEventListener('click', () => {
+    gameTimer()
+})
 
 // once timer ends, no more clicks allowed
 // alert that shows how many turns were taken and how many pairs were found
