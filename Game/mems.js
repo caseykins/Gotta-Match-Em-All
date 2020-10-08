@@ -70,8 +70,6 @@ const findMatches = () => {
 
     let turns = 0
 
-//    let firstCard = (cardFronts[]).getAttribute('value')
-//    let secondCard = (cardFronts[]).getAttribute('value')
 
     if ( clickedCards.length === 2) {
 
@@ -90,23 +88,6 @@ const findMatches = () => {
     }
 }
 }
-
-    // select card 1
-    // select card 2
-    // if match: leave overturned and disable
-    // if not a match: reset cards to downward position
-
-//      if (card 1 === card 2)
-//          disable event listener
-//          count as a turn
-
-//      else if card 1 !== card 2)
-//          reset cards to original state
-//          count as a turn
-
-//      repeat until all matches are found, keeping tally of each turn (one pair)
-
-//      limit number of turns?      
 
 const gameTimer = (e) => {
     
