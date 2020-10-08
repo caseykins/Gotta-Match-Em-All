@@ -3,22 +3,24 @@ html {
 }
 
 header {
-    background-color: rgb(21, 44, 103);
+    background-color: rgb(2, 55, 106);
     padding: 20px 10px;
-    border: 3px solid gray;
+    border: 3px solid rgb(255, 203, 5);
     border-radius: 10px;
 }
 
 body {
-    background-image: url(https://image.winudf.com/v2/image/Y29tLmhkcG9rZW1vbi53YWxscGFwZXJfc2NyZWVuXzZfMTUzMDE2Nzk0MV8wNjY/screen-6.jpg?fakeurl=1&type=.jpg);
+    background-image: url(https://www.free-largeimages.com/wp-content/uploads/2014/12/Pokemon_wallpaper-3.jpg);
     background-size: cover;
+    background-position: center;
     align-items: center;
 }
 
 h1 {
     display: flex;
-    color: rgb(238, 208, 39);
-    text-shadow: 1px 0 black, 0 2px black, 2px 0 black, 0 1px black;
+    font-size: 45px;
+    color: rgb(255, 203, 5);
+    text-shadow: 3px 0 rgba(255, 255, 255, 0.783), 0 5px#2a75bb, 3px 0 rgba(255, 255, 255, 0.783), 0 5px #2a75bb;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -26,7 +28,7 @@ h1 {
 
 h2 {
     text-align: center;
-    color: black;
+    color: rgb(255, 203, 5);
 }
 
 .cardsContainer {
@@ -38,6 +40,7 @@ h2 {
     margin: 4px;
     border-radius: 10px;
     text-align: center;
+    border: 2px solid rgb(2, 55, 106);
 }
 
 .cards:hover {
@@ -51,16 +54,20 @@ h2 {
     margin: 10px;
 }
 
+/* .cardFronts {
+    border: 3px solid rgb(21, 44, 103);
+} */
 
 #button { 
-    color: darkcyan;
-    background: cornsilk;
+    color: rgb(255, 203, 5);
+    background: rgb(2, 55, 106);
+    /* text-shadow: 1px 0 white, 0 3px #2a75bb, 1px 0 white, 0 3px #2a75bb; */
     text-align: center;
     font-size: 25px;
     height: 100px;
     width: 80px;
     padding: 6px;
-    border: 3px solid darkolivegreen;
+    border: 3px solid rgb(17, 17, 106);
     border-radius: 5px;
     cursor: pointer;
 }
