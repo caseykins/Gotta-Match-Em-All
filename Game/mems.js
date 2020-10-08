@@ -96,7 +96,7 @@ const gameTimer = (e) => {
     const timerInterval = setInterval(() => {
         timer --
         if (timer === 0) {
-            document.querySelector(cards).removeEventListener('click', getCards)
+            removeEventListener('click', getCards)
             alert("Time's Up!")
         }
         const timerText = document.getElementById('timer')
