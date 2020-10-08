@@ -21,7 +21,7 @@ let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, 
                 {name: 'card17', img: './images/card17.png', value: 'zapdos'}, {name: 'card18', img: './images/card18.png', value: 'beedrill'}, 
                 {name: 'card19', img: './images/card19.png', value: 'kadabra'}, {name: 'card20', img: './images/card20.png', value: 'cubone'}]
 
-
+let clickedCards = []
 
 // create the deck
 const getCards = () => {
@@ -34,18 +34,20 @@ const getCards = () => {
         cards.addEventListener('click', flipCards)
         cardsContainer.appendChild(cards)
         // allow button to only be clicked once
-        cardsButton.removeEventListener('click', getCards)
+        cardsButton.removeEventListener('click', startGame)
         }
+    }
+
+    const startGame = () => {
+        shuffle()
+        getCards()
     }
 
     let cardsButton = document.createElement('button')
     cardsButton.setAttribute('id', 'button')
     cardsButton.innerText = "Get Cards"
     btnContainer.appendChild(cardsButton)
-    cardsButton.addEventListener('click', () => {
-        shuffle()
-        getCards()
-    })
+    cardsButton.addEventListener('click', startGame)
 
 
 const shuffle = (array) => {
@@ -59,18 +61,34 @@ const flipCards = (e) => {
         e.target.name
         console.log(e.target.name)
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
+        clickedCards.push(e.target)
+        findMatches()
+        // set timeout 
     }    
 
-const findMatches = (e) => {
-    let card1 = document.querySelector(cardFronts[i]).getAttribute('value')
-    let card2 = document.querySelector(cardFronts[i]).getAttribute('value')
+const findMatches = () => {
 
-    if (card1.id === card2.id) {
-        remove(e.target)
+    let turns = 0
 
-    } else if (cardFronts[i].id !== cardFronts[i].id) {
-        return nothing //??
+//    let firstCard = (cardFronts[]).getAttribute('value')
+//    let secondCard = (cardFronts[]).getAttribute('value')
+
+    if ( clickedCards.length === 2) {
+
+        let firstCard = clickedCards[0]
+        let secondCard = clickedCards[1]
+
+    if (firstCard.getAttribute('value') === secondCard.getAttribute('value')) {
+        firstCard.removeEventListener('click', flipCards)
+        secondCard.removeEventListener('click', flipCards)
+        clickedCards = []
+
+    } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
+        clickedCards = []
+        firstCard.setAttribute('src', './images/back.png')
+        secondCard.setAttribute('src', './images/back.png')
     }
+}
 }
 
     // select card 1
@@ -88,6 +106,7 @@ const findMatches = (e) => {
 
 //      repeat until all matches are found, keeping tally of each turn (one pair)
 
+//      limit number of turns?      
 
 const gameTimer = (e) => {
     
@@ -99,12 +118,13 @@ const gameTimer = (e) => {
             removeEventListener('click', getCards)
             alert("Time's Up!")
         }
+
         const timerText = document.getElementById('timer')
-        timerText.innerHTML = `Timer: ${timer} Seconds`
+        timerText.innerHTML = `Time Left: ${timer} Seconds`
 
         if (timer === 0) {
             clearInterval(timerInterval)
-            removeEventListener('click', getCards)
+            removeEventListener('click', cardFronts)
         }
 
     }, 1000)
@@ -116,4 +136,4 @@ cardsButton.addEventListener('click', () => {
 })
 
 // once timer ends, no more clicks allowed
-// alert that shows how many turns were taken and how many pairs were found
+
