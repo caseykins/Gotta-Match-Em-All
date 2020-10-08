@@ -40,16 +40,16 @@ const getCards = () => {
         }
     }
 
-    const startGame = () => {
-        shuffle()
-        getCards()
+const startGame = () => {
+    shuffle()
+    getCards()
     }
 
-    let cardsButton = document.createElement('button')
-    cardsButton.setAttribute('id', 'button')
-    cardsButton.innerText = "Get Cards"
-    btnContainer.appendChild(cardsButton)
-    cardsButton.addEventListener('click', startGame)
+let cardsButton = document.createElement('button')
+cardsButton.setAttribute('id', 'button')
+cardsButton.innerText = "Get Cards"
+btnContainer.appendChild(cardsButton)
+cardsButton.addEventListener('click', startGame)
 
 
 const shuffle = (array) => {
@@ -65,7 +65,6 @@ const flipCards = (e) => {
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
         clickedCards.push(e.target)
         findMatches()
-        // set timeout 
     }    
 
 const findMatches = () => {
@@ -75,23 +74,34 @@ const findMatches = () => {
         let firstCard = clickedCards[0]
         let secondCard = clickedCards[1]
 
-    if (firstCard.getAttribute('value') === secondCard.getAttribute('value')) {
-        firstCard.removeEventListener('click', getCards)
-        secondCard.removeEventListener('click', getCards)
-        clickedCards = []
-        console.log('This is a match!')
-        turns ++
+        if (firstCard.getAttribute('value') === secondCard.getAttribute('value')) {
+            firstCard.removeEventListener('click', startGame)
+            secondCard.removeEventListener('click', startGame)
+            clickedCards = []
+            console.log('This is a match!')
+            // removeEventListener('click', flipCards)
+            turns ++
 
-    } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
-        clickedCards = []
-        firstCard.setAttribute('src', './images/back.png')
-        secondCard.setAttribute('src', './images/back.png')
-        console.log('This is not a match.')
-        turns ++
+        } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
+            clickedCards = []
+            // firstCard.setAttribute('src', './images/back.png')
+            // secondCard.setAttribute('src', './images/back.png')
+            console.log('This is not a match.')
+            turns ++
+            
+            setTimeout(function() {
+                // this.firstCard[0].setAttribute('src', './images/back.png')
+                // this.secondCard[1].setAttribute('src', './images/back.png')
+                firstCard.setAttribute('src', './images/back.png')
+                secondCard.setAttribute('src', './images/back.png')
+
+                firstCard.shift();
+                secondCard.shift();
+            }, 1250)
     }
     const turnCounter = document.getElementById('turns')
         turnCounter.innerHTML = `Turns: ${turns}`
-}
+    }
 }
 
 const gameTimer = (e) => {
@@ -101,17 +111,20 @@ const gameTimer = (e) => {
     const timerInterval = setInterval(() => {
         timer --
         if (timer === 0) {
-            removeEventListener('click', getCards)
+
+            // document.querySelectorAll('cards')
+            // let cards = []
+
+            // gives array of all cards
+            // save as an array
+            // loop through accessing each element and add remove event listener on each
+            // cards.removeEventListener('click', flipCards)
+            clearInterval(timerInterval)
             alert("Time's Up!")
         }
 
         const timerText = document.getElementById('timer')
         timerText.innerHTML = `Time Left: ${timer} Seconds`
-
-        if (timer === 0) {
-            clearInterval(timerInterval)
-            removeEventListener('click', startGame)
-        }
 
     }, 1000)
     
@@ -121,5 +134,5 @@ cardsButton.addEventListener('click', () => {
     gameTimer()
 })
 
-// once timer ends, no more clicks allowed
+
 
