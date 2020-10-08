@@ -7,6 +7,7 @@ header {
     padding: 20px 10px;
     border: 3px solid rgb(255, 203, 5);
     border-radius: 10px;
+    border-style: groove;
 }
 
 body {
@@ -28,7 +29,14 @@ h1 {
 
 h2 {
     text-align: center;
-    color: rgb(255, 203, 5);
+    color: rgb(225, 222, 211);
+}
+
+#timer {
+    font-size: 25px;
+    color: rgb(2, 55, 106);
+    text-align: center;
+    margin: 10px;
 }
 
 .cardsContainer {
@@ -51,6 +59,7 @@ h2 {
 
 .button {
     text-align: center;
+    padding: 5px;
     margin: 10px;
 }
 
@@ -61,14 +70,19 @@ h2 {
 #button { 
     color: rgb(255, 203, 5);
     background: rgb(2, 55, 106);
-    /* text-shadow: 1px 0 white, 0 3px #2a75bb, 1px 0 white, 0 3px #2a75bb; */
+    text-shadow: 1px 0 rgb(225, 222, 211), 0 3px #2a75bb, 1px 0 rgb(225, 222, 211), 0 3px #2a75bb;
     text-align: center;
     font-size: 25px;
     height: 100px;
-    width: 80px;
+    width: 95px;
     padding: 6px;
     border: 3px solid rgb(17, 17, 106);
     border-radius: 5px;
     cursor: pointer;
+}
+
+#button:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
 }
 
