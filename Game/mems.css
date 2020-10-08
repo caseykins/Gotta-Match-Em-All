@@ -3,21 +3,22 @@ html {
 }
 
 header {
-    background-color: darkolivegreen;
+    background-color: rgb(21, 44, 103);
     padding: 20px 10px;
-    color: cornsilk;
-    border: 3px solid goldenrod;
+    border: 3px solid gray;
     border-radius: 10px;
 }
 
 body {
-    background: wheat;
+    background-image: url(https://image.winudf.com/v2/image/Y29tLmhkcG9rZW1vbi53YWxscGFwZXJfc2NyZWVuXzZfMTUzMDE2Nzk0MV8wNjY/screen-6.jpg?fakeurl=1&type=.jpg);
+    background-size: cover;
     align-items: center;
 }
 
 h1 {
     display: flex;
-    color: cornsilk;
+    color: rgb(238, 208, 39);
+    text-shadow: 1px 0 black, 0 2px black, 2px 0 black, 0 1px black;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -25,19 +26,17 @@ h1 {
 
 h2 {
     text-align: center;
-    color: darkolivegreen;
+    color: black;
 }
 
 .cardsContainer {
     text-align: center;
-    max-width: 1250px;
+    max-width: 1400px;
 }
 
 .cards {
-    /* display: flex; */
-    /* flex-direction: row; */
     margin: 4px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -45,20 +44,16 @@ h2 {
     transform: translateY(-5px);
     transition: all 0.15s ease-in-out;
     cursor: pointer;
-  }
-
-/* img {
-    width: 75px;
-    height: 120px;
-} */
+}
 
 .button {
     text-align: center;
+    margin: 10px;
 }
 
 
 #button { 
-    color: darkolivegreen;
+    color: darkcyan;
     background: cornsilk;
     text-align: center;
     font-size: 25px;
