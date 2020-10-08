@@ -94,6 +94,7 @@ const gameTimer = (e) => {
     timer = 60
 
     const timerInterval = setInterval(() => {
+        timer --
         if (timer === 0) {
             document.querySelector(cards).removeEventListener('click', getCards)
             alert("Time's Up!")
@@ -101,8 +102,13 @@ const gameTimer = (e) => {
         const timerText = document.getElementById('timer')
         timerText.innerHTML = `Timer: ${timer} Seconds`
 
-    }, 600)
+        if (timer === 0) {
+            clearInterval(timerInterval)
+            removeEventListener('click', getCards)
+        }
 
+    }, 1000)
+    
 }
 
 cardsButton.addEventListener('click', () => {
