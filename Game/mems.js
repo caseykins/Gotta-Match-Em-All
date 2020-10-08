@@ -10,20 +10,24 @@ cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
 
-let cardFronts = [{name: 'card1', img: './images/card1.png'}, {name: 'card2', img: './images/card2.png'}, 
-                {name: 'card3', img: './images/card3.png'}, {name: 'card4', img: './images/card4.png'}, 
-                {name: 'card5', img: './images/card5.png'}, {name: 'card6', img: './images/card6.png'}, 
-                {name: 'card7', img: './images/card7.png'}, {name: 'card8', img: './images/card8.png'}, 
-                {name: 'card9', img: './images/card9.png'}, {name: 'card10', img: './images/card10.png'},
-                {name: 'card11', img: './images/card11.png'}, {name: 'card12', img: './images/card12.png'}, 
-                {name: 'card13', img: './images/card13.png'}, {name: 'card14', img: './images/card14.png'}, 
-                {name: 'card15', img: './images/card15.png'}, {name: 'card16', img: './images/card16.png'}, 
-                {name: 'card17', img: './images/card17.png'}, {name: 'card18', img: './images/card18.png'}, 
-                {name: 'card19', img: './images/card19.png'}, {name: 'card20', img: './images/card20.png'}]
+let cardFronts = [{name: 'card1', img: './images/card1.png', id: 'primape'}, {name: 'card2', img: './images/card2.png', id: 'scyther'}, 
+                {name: 'card3', img: './images/card3.png', id: 'gyarados'}, {name: 'card4', img: './images/card4.png', id: 'haunter'}, 
+                {name: 'card5', img: './images/card5.png', id: 'kabutops'}, {name: 'card6', img: './images/card6.png', id: 'aerodactyl'}, 
+                {name: 'card7', img: './images/card7.png', id: 'zapdos'}, {name: 'card8', img: './images/card8.png', id: 'beedrill'}, 
+                {name: 'card9', img: './images/card9.png', id: 'kadabra'}, {name: 'card10', img: './images/card10.png', id: 'cubone'},
+                {name: 'card11', img: './images/card11.png', id: 'primape'}, {name: 'card12', img: './images/card12.png', id: 'scyther'}, 
+                {name: 'card13', img: './images/card13.png', id: 'gyarados'}, {name: 'card14', img: './images/card14.png', id: 'haunter'}, 
+                {name: 'card15', img: './images/card15.png', id: 'kabutops'}, {name: 'card16', img: './images/card16.png', id: 'aerodactyl'}, 
+                {name: 'card17', img: './images/card17.png', id: 'zapdos'}, {name: 'card18', img: './images/card18.png', id: 'beedrill'}, 
+                {name: 'card19', img: './images/card19.png', id: 'kadabra'}, {name: 'card20', img: './images/card20.png', id: 'cubone'}]
+
+let moves = 0,
+
+timer = 60;
 
 
 // create the deck
-let getCards = () => {
+const getCards = () => {
         for (let i=0; i < cardFronts.length; i++) {
         let cards = document.createElement('img')
         cards.setAttribute('class', 'cards')
@@ -46,7 +50,7 @@ let getCards = () => {
     })
 
 
-let shuffle = (array) => {
+const shuffle = (array) => {
     cardFronts.sort(function (a, b) {
         return .5 - Math.random()
         })
@@ -54,14 +58,22 @@ let shuffle = (array) => {
 
 
 const flipCards = (e) => {
-    
         e.target.name
         console.log(e.target.name)
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
     }    
 
-    // on click: replace image with CardFronts
-    //      *Need two of each image*
+const findMatches = (e) => {
+    let card1 = document.querySelector(cardFronts[i]).getAttribute('id')
+    let card2 = document.querySelector(cardFronts[i]).getAttribute('id')
+
+    if (card1.id === card2.id) {
+        remove(e.target)
+
+    } else if (cardFronts[i].id !== cardFronts[i].id) {
+        return nothing //??
+    }
+}
 
     // select card 1
     // select card 2
@@ -69,13 +81,31 @@ const flipCards = (e) => {
     // if not a match: reset cards to downward position
 
 //      if (card 1 === card 2)
-//          disable
+//          disable event listener
+//          count as a turn
 
 //      else if card 1 !== card 2)
-//          flip over
+//          reset cards to original state
+//          count as a turn
+
+//      repeat until all matches are found, keeping tally of each turn (one pair)
 
 
-// gameTimer()
+const gameTimer = (e) => {
+    
+    timer = 60
+
+    const timerInterval = setInterval(() => {
+        if (timer === 0) {
+            document.querySelector(cards).removeEventListener('click', getCards)
+            alert("Time's Up!")
+        }
+        const timerText = document.getElementById('timer')
+        timerText.innerHTML = `timer: ${timer}s`
+
+    }, 600)
+
+}
 
 // once timer ends, no more clicks allowed
 // alert that shows how many turns were taken and how many pairs were found
