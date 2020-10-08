@@ -21,6 +21,8 @@ let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, 
                 {name: 'card17', img: './images/card17.png', value: 'zapdos'}, {name: 'card18', img: './images/card18.png', value: 'beedrill'}, 
                 {name: 'card19', img: './images/card19.png', value: 'kadabra'}, {name: 'card20', img: './images/card20.png', value: 'cubone'}]
 
+let turns = 0
+
 let clickedCards = []
 
 // create the deck
@@ -68,24 +70,27 @@ const flipCards = (e) => {
 
 const findMatches = () => {
 
-    let turns = 0
-
-
     if ( clickedCards.length === 2) {
 
         let firstCard = clickedCards[0]
         let secondCard = clickedCards[1]
 
     if (firstCard.getAttribute('value') === secondCard.getAttribute('value')) {
-        firstCard.removeEventListener('click', flipCards)
-        secondCard.removeEventListener('click', flipCards)
+        firstCard.removeEventListener('click', getCards)
+        secondCard.removeEventListener('click', getCards)
         clickedCards = []
+        console.log('This is a match!')
+        turns ++
 
     } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
         clickedCards = []
         firstCard.setAttribute('src', './images/back.png')
         secondCard.setAttribute('src', './images/back.png')
+        console.log('This is not a match.')
+        turns ++
     }
+    const turnCounter = document.getElementById('turns')
+        turnCounter.innerHTML = `Turns: ${turns}`
 }
 }
 
@@ -105,7 +110,7 @@ const gameTimer = (e) => {
 
         if (timer === 0) {
             clearInterval(timerInterval)
-            removeEventListener('click', cardFronts)
+            removeEventListener('click', startGame)
         }
 
     }, 1000)
