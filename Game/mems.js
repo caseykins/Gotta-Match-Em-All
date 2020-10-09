@@ -11,11 +11,11 @@ cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
 // add images and values to the cards
-let cardFronts = [{name: 'card1', img: 'Images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
+let cardFronts = [{name: 'card1', img: 'images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
                 {name: 'card3', img: './images/card3.png', value: 'gyarados'}, {name: 'card4', img: './images/card4.png', value: 'haunter'}, 
                 {name: 'card5', img: './images/card5.png', value: 'kabutops'}, {name: 'card6', img: './images/card6.png', value: 'aerodactyl'}, 
                 {name: 'card7', img: './images/card7.png', value: 'zapdos'}, {name: 'card8', img: './images/card8.png', value: 'beedrill'}, 
-                {name: 'card9', img: './Images/card9.png', value: 'kadabra'}, {name: 'card10', img: './images/card10.png', value: 'cubone'},
+                {name: 'card9', img: './images/card9.png', value: 'kadabra'}, {name: 'card10', img: './images/card10.png', value: 'cubone'},
                 {name: 'card11', img: './images/card11.png', value: 'primape'}, {name: 'card12', img: './images/card12.png', value: 'scyther'}, 
                 {name: 'card13', img: './images/card13.png', value: 'gyarados'}, {name: 'card14', img: './images/card14.png', value: 'haunter'}, 
                 {name: 'card15', img: './images/card15.png', value: 'kabutops'}, {name: 'card16', img: './images/card16.png', value: 'aerodactyl'}, 
