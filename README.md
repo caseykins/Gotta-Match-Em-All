@@ -22,8 +22,11 @@ I had a lot of fun (and tons of stress) designing and building this game. What w
 -------------------------------
 ### Screenshots
 /project/GMEA1.png
+
 /project/GMEA2.png
+
 /project/GMEA3.png
+
 /project/GMEA4.png
 
 -------------------------------
@@ -34,5 +37,7 @@ A huge shoutout goes to fellow GA students Lucy Franco and Jane Cho whose ideas 
 -------------------------------
 ### Future Additions
 • Bug fixes
+
 • Enhancing page design
+
 • Additional features
