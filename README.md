@@ -21,13 +21,13 @@ I had a lot of fun (and tons of stress) designing and building this game. What w
 
 -------------------------------
 ### Screenshots
-./project/GMEA1.png
+/game/GMEA1.png
 
-./project/GMEA2.png
+/game/GMEA2.png
 
-./project/GMEA3.png
+/game/GMEA3.png
 
-./project/GMEA4.png
+/game/GMEA4.png
 
 -------------------------------
 ### Special Thanks
