@@ -1,15 +1,16 @@
 console.log('Remember, remember..')
 
-
+// create container for Get Cards Button
 let btnContainer = document.createElement('div')
 btnContainer.setAttribute('class', 'button')
 document.body.appendChild(btnContainer)
 
+// create container for the cards
 let cardsContainer = document.createElement('div')
 cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
-
+// add images and values to the cards
 let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
                 {name: 'card3', img: './images/card3.png', value: 'gyarados'}, {name: 'card4', img: './images/card4.png', value: 'haunter'}, 
                 {name: 'card5', img: './images/card5.png', value: 'kabutops'}, {name: 'card6', img: './images/card6.png', value: 'aerodactyl'}, 
@@ -21,10 +22,13 @@ let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, 
                 {name: 'card17', img: './images/card17.png', value: 'zapdos'}, {name: 'card18', img: './images/card18.png', value: 'beedrill'}, 
                 {name: 'card19', img: './images/card19.png', value: 'kadabra'}, {name: 'card20', img: './images/card20.png', value: 'cubone'}]
 
+// Define starting turn value
 let turns = 0
 
+// add a value for # of matches for win condition
 let matches = 0
 
+// create array for paired cards
 let clickedCards = []
 
 // create the deck
@@ -42,11 +46,13 @@ const getCards = () => {
         }
     }
 
+// This function is to differentiate event listeners
 const startGame = () => {
     shuffle()
     getCards()
     }
 
+// button starts game by randomizing cards
 let cardsButton = document.createElement('button')
 cardsButton.setAttribute('id', 'button')
 cardsButton.innerText = "Get Cards"
@@ -60,7 +66,7 @@ const shuffle = (array) => {
         })
     }
 
-
+// add a targeted event listener for each card to flip
 const flipCards = (e) => {
         e.target.name
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
@@ -68,6 +74,7 @@ const flipCards = (e) => {
         findMatches()
     }    
 
+// compares card values by using the empty array above (clickedCards[])
 const findMatches = () => {
 
     let matches = 0
@@ -77,34 +84,41 @@ const findMatches = () => {
         let firstCard = clickedCards[0]
         let secondCard = clickedCards[1]
 
+        // finding a match should disable both cards from being clicked again
         if (firstCard.getAttribute('value') === secondCard.getAttribute('value')) {
             firstCard.removeEventListener('click', startGame)
             secondCard.removeEventListener('click', startGame)
             clickedCards = []
             console.log('This is a match!')
+            // each pair of clicks registers as one turn
             turns ++
             matches++
+            // after completing the board, the game should end
             if (matches === 10) {
                 clearInterval(timerInterval)
                 window.alert('Congratulations, you won! Would you like to play again?')
                 window.location.reload()
             }
-        
+        // click a pair resulting in not a match will return each card to its default position
         } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
             clickedCards = []
             console.log('This is not a match.')
+            // each pair of clicks registers as one turn
             turns ++
             
+            // this resets cards to default in 1.25 seconds
             setTimeout(function() {
                 firstCard.setAttribute('src', './images/back.png')
                 secondCard.setAttribute('src', './images/back.png')
             }, 1250)
     }
+    // update turns as the game goes on
     const turnCounter = document.getElementById('turns')
         turnCounter.innerHTML = `Turns: ${turns}`
     }
 }
 
+// defines the maximum duration of the game at one minute
 const gameTimer = (e) => {
     
     timer = 60
@@ -120,19 +134,19 @@ const gameTimer = (e) => {
             cards[i].removeEventListener('click', findMatches)
             cards[i].removeEventListener('click', findMatches)
             }
-
+            // once timer ends, player is prompted with this message and the option to play again
             clearInterval(timerInterval)
             alert("Time's Up! Want to try again?")
             window.location.reload();
         }
-
+        // tracks the seconds in real time
         const timerText = document.getElementById('timer')
         timerText.innerHTML = `Time Left: ${timer} Seconds`
 
     }, 1000)
     
 }
-
+// hitting the Get Cards button starts the timer
 cardsButton.addEventListener('click', () => {
     gameTimer()
 })
