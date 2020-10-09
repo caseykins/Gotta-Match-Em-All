@@ -70,7 +70,7 @@ h2 {
 
 .button {
     text-align: center;
-    padding: 5px;
+    padding: 0 auto;
     margin: 10px;
 }
 
