@@ -1,4 +1,4 @@
-# ** Gotta Match 'Em All! ** 
+# Gotta Match 'Em All! 
 ## Memory Game
 ### Unit 1 Project for GA
 -------------------------------
