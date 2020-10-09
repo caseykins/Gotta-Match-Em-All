@@ -21,9 +21,9 @@ I had a lot of fun (and tons of stress) designing and building this game. What w
 
 -------------------------------
 ### Screenshots
-![](./Game/Images/GMEA1.png)
+![](./Game/images/GMEA1.png)
 
-![](./Game/Images/GMEA2.png)
+![](./Game/images/GMEA2.png)
 
 ![](./Game/images/GMEA3.png)
 
