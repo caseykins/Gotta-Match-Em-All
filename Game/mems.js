@@ -11,7 +11,7 @@ cardsContainer.setAttribute('class', 'cardsContainer')
 document.body.appendChild(cardsContainer)
 
 // add images and values to the cards
-let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
+let cardFronts = [{name: 'card1', img: 'images/card1.png', value: 'primape'}, {name: 'card2', img: './images/card2.png', value: 'scyther'}, 
                 {name: 'card3', img: './images/card3.png', value: 'gyarados'}, {name: 'card4', img: './images/card4.png', value: 'haunter'}, 
                 {name: 'card5', img: './images/card5.png', value: 'kabutops'}, {name: 'card6', img: './images/card6.png', value: 'aerodactyl'}, 
                 {name: 'card7', img: './images/card7.png', value: 'zapdos'}, {name: 'card8', img: './images/card8.png', value: 'beedrill'}, 
