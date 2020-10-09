@@ -30,3 +30,9 @@ I had a lot of fun (and tons of stress) designing and building this game. What w
 ### Special Thanks
 This game would not have been made without the wonderful instructors and assistants at General Assembly: Michael Petty, James Sinkler, Uyen Lam, and Jacob Kleiman.
 A huge shoutout goes to fellow GA students Lucy Franco and Jane Cho whose ideas and collaboration were paramount to this game's formation. Special thanks to all of my other fellow GA students for their commitment to our group's success and family environment.
+
+-------------------------------
+### Future Additions
+• Bug fixes
+• Enhancing page design
+• Additional features
