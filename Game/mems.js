@@ -23,6 +23,8 @@ let cardFronts = [{name: 'card1', img: './images/card1.png', value: 'primape'}, 
 
 let turns = 0
 
+let matches = 0
+
 let clickedCards = []
 
 // create the deck
@@ -61,13 +63,14 @@ const shuffle = (array) => {
 
 const flipCards = (e) => {
         e.target.name
-        //console.log(e.target.name)
         e.target.setAttribute('src', `./images/${e.target.name}.png`)
         clickedCards.push(e.target)
         findMatches()
     }    
 
 const findMatches = () => {
+
+    let matches = 0
 
     if ( clickedCards.length === 2) {
 
@@ -79,23 +82,22 @@ const findMatches = () => {
             secondCard.removeEventListener('click', startGame)
             clickedCards = []
             console.log('This is a match!')
-            // removeEventListener('click', flipCards)
             turns ++
-
+            matches++
+            if (matches === 10) {
+                clearInterval(timerInterval)
+                window.alert('Congratulations, you won! Would you like to play again?')
+                window.location.reload()
+            }
+        
         } else if (firstCard.getAttribute('value') !== secondCard.getAttribute('value')) {
             clickedCards = []
-            // firstCard.setAttribute('src', './images/back.png')
-            // secondCard.setAttribute('src', './images/back.png')
             console.log('This is not a match.')
             turns ++
             
             setTimeout(function() {
-                // this.firstCard[0].setAttribute('src', './images/back.png')
-                // this.secondCard[1].setAttribute('src', './images/back.png')
                 firstCard.setAttribute('src', './images/back.png')
                 secondCard.setAttribute('src', './images/back.png')
-                //firstCard.shift();
-                //secondCard.shift();
             }, 1250)
     }
     const turnCounter = document.getElementById('turns')
@@ -105,23 +107,20 @@ const findMatches = () => {
 
 const gameTimer = (e) => {
     
-    timer = 3
-
+    timer = 60
+    
     const timerInterval = setInterval(() => {
         timer --
         if (timer === 0) {
 
-            // let cards = document.querySelectorAll('.cards')
-            // console.log('.cards')
+            let cards = document.querySelectorAll('.cards')
+            //console.log(cards)
 
-            // for (let i=0; i<cards.length; i++)
-            // getCards.removeEventListener('click', cards)
+            for (let i=0; i<cards.length; i++){
+            cards[i].removeEventListener('click', findMatches)
+            cards[i].removeEventListener('click', findMatches)
+            }
 
-            // gives array of all cards
-            // save as an array
-            // loop through accessing each element and add remove event listener on each
-
-            // cards.removeEventListener('click', flipCards)
             clearInterval(timerInterval)
             alert("Time's Up! Want to try again?")
             window.location.reload();
